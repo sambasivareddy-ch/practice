@@ -4,7 +4,7 @@
 */
 
 /*
-    Time Complexity: O(nlogn) + O(n)
+    Time Complexity: O(nlogn) + O(n) = O(nlogn)
     Space Complexity: O(1)
 */
 const findDuplicateWithSorting = (arr) => {
