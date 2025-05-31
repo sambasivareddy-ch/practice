@@ -36,10 +36,39 @@ const BruteForce = (arr1, arr2) => {
     return result;
 }
 
+// Time Complexity: O(n+m) + O(nlogn) + O(mlogm)
+// Space Complexity: O(1)
+const OptimalApproach = (arr1, arr2) => {
+    let n = arr1.length,
+        m = arr2.length;
+    
+    let left = n-1, right = 0;
+
+    while (left >= 0 && right < m) {
+        if (arr1[left] > arr2[right]) {
+            let temp = arr1[left];
+            arr1[left] = arr2[right];
+            arr2[right] = temp;
+
+            left -= 1;
+            right += 1;
+        } else {
+            break;
+        }
+    }
+
+    arr1.sort();
+    arr2.sort((a, b) => a-b);
+
+    return [arr1, arr2]
+}
+
 let arr1 = [1,4,8,9]
 let arr2 = [2,3,10]
 console.log(BruteForce(arr1, arr2))
+console.log(OptimalApproach(arr1, arr2))
 
 let arr3 = [1,3,5,7,9]
 let arr4 = [2,4,6,8,10]
 console.log(BruteForce(arr3, arr4))
+console.log(OptimalApproach(arr3, arr4))
