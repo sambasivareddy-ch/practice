@@ -9,6 +9,7 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+// Time Complexity: O(n), where n is the number of nodes in the tree.
 func inorderTraversal(root *TreeNode) {
 	if (root == nil) {
 		return
