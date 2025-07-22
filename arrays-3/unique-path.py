@@ -28,6 +28,9 @@ def getNoOfValidPathsUsingDP(i, j, m, n, memo):
     elif i >= m or j >= n:
         return 0 
     
+    if (i,j) in memo:
+        return memo[(i,j)]
+    
     down = getNoOfValidPaths(i+1, j, m, n, memo)
     right = getNoOfValidPaths(i, j+1, m, n, memo)
 
